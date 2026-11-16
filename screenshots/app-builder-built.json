@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Dªtªblɛ",
+      "hasCanvas": false,
+      "bodyTextLen": 853,
+      "bodyTextHash": "7a91c6573f327f7343c61cfcd6e5feff1a22594df1423aef79540bb676e08c69",
+      "bodyTextPrefix": "Dªtªblɛ Stores Radar Solution Equipo comercial ECOSISTEMA DIGITA",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Dªtªblɛ",
+      "hasCanvas": false,
+      "bodyTextLen": 814,
+      "bodyTextHash": "ee80b108adf0d9ff1004533a5ac613b14436805a497d7817a0ee53bd06caad0a",
+      "bodyTextPrefix": "Dªtªblɛ ECOSISTEMA DIGITAL El ecosistema que te da el poder de h",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

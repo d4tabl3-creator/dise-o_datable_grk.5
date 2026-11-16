@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Dªtªblɛ",
+      "hasCanvas": false,
+      "bodyTextLen": 1013,
+      "bodyTextHash": "1554eabc4f465f29ca34ebf596f16e68b7a6c4762ce2835452eafe00f92891ff",
+      "bodyTextPrefix": "Dªtªblɛ Stores Radar Solution Equipo comercial SEÑAL EN VIVO · 0",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Dªtªblɛ",
+      "hasCanvas": false,
+      "bodyTextLen": 974,
+      "bodyTextHash": "cbe6e0020c11b390c9aa404520c31f47c3c8f57eb8b40a0014291c410b781648",
+      "bodyTextPrefix": "Dªtªblɛ SEÑAL EN VIVO · 000 El ecosistema que te da el poder de ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

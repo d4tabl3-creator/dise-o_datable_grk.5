@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Dmark";
+  src: url("/fonts/dmark.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-void: #031018;
+  --color-bone: #f3f6f4;
+  --color-mute: #9eb0c0;
+  --color-line: #143044;
+  --color-signal: #5ef2e0;
+  --color-human: #e7b04a;
+  --color-panel: #071826;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Unbounded", ui-sans-serif, system-ui, sans-serif;
+  --font-mark: "Dmark", "DejaVu Sans", sans-serif;
+}
+
+@layer base {
+  html {
+    background: var(--color-void);
+    color: var(--color-bone);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-void);
+    color: var(--color-bone);
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-signal);
+    color: var(--color-void);
+  }
+}
+
+.font-mark {
+  font-family: var(--font-mark);
+  font-weight: 700;
+}
+
+.lab-grid {
+  background-image:
+    linear-gradient(to right, rgb(94 242 224 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(94 242 224 / 0.07) 1px, transparent 1px);
+  background-size: 72px 72px;
+  animation: lab-drift 28s linear infinite;
+}
+
+.lab-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 18vh;
+  background: linear-gradient(to bottom, transparent, rgb(94 242 224 / 0.08), transparent);
+  animation: lab-beam 9s ease-in-out infinite;
+}
+
+.lab-radar {
+  position: relative;
+  width: min(78vw, 440px);
+  aspect-ratio: 1;
+}
+
+.lab-ring {
+  position: absolute;
+  inset: 8%;
+  border: 1px solid rgb(94 242 224 / 0.35);
+  border-radius: 9999px;
+}
+
+.lab-ring-2 {
+  inset: 22%;
+  border-style: dashed;
+  animation: lab-spin 24s linear infinite;
+}
+
+.lab-ring-3 {
+  inset: 36%;
+  animation: lab-spin 16s linear infinite reverse;
+}
+
+.lab-cross {
+  position: absolute;
+  inset: 8%;
+  background:
+    linear-gradient(rgb(94 242 224 / 0.28), rgb(94 242 224 / 0.28)) center / 1px 100% no-repeat,
+    linear-gradient(rgb(94 242 224 / 0.28), rgb(94 242 224 / 0.28)) center / 100% 1px no-repeat;
+}
+
+.lab-sweep {
+  position: absolute;
+  inset: 8%;
+  border-radius: 9999px;
+  background: conic-gradient(from 0deg, transparent 0 68%, rgb(94 242 224 / 0.85) 86%, transparent 100%);
+  animation: lab-spin 3.2s linear infinite;
+  mask: radial-gradient(circle, transparent 12%, black 13%);
+}
+
+.lab-needle {
+  position: absolute;
+  left: 50%;
+  top: 12%;
+  margin-left: -1.5px;
+  width: 3px;
+  height: 38%;
+  background: var(--color-signal);
+  box-shadow: 0 0 16px var(--color-signal);
+  transform-origin: center bottom;
+  animation: lab-spin 3.2s linear infinite;
+}
+
+.lab-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -50%);
+  background: var(--color-signal);
+  border-radius: 9999px;
+  box-shadow: 0 0 24px var(--color-signal);
+}
+
+.lab-blip {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border-radius: 9999px;
+  background: var(--color-signal);
+  box-shadow: 0 0 16px var(--color-signal);
+  animation: lab-blip 3.2s ease-in-out infinite;
+}
+
+.lab-marquee {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  animation: lab-marquee 22s linear infinite;
+}
+
+.lab-scan {
+  position: absolute;
+  inset-inline: 0;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, rgb(94 242 224 / 0.16), transparent);
+  animation: lab-scan 4.8s ease-in-out infinite;
+}
+
+@keyframes lab-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes lab-drift {
+  to { background-position: 72px 72px; }
+}
+
+@keyframes lab-beam {
+  0% { top: -20%; }
+  100% { top: 110%; }
+}
+
+@keyframes lab-blip {
+  0%, 100% { opacity: 0.15; transform: scale(0.7); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes lab-marquee {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes lab-scan {
+  0% { top: -30%; }
+  100% { top: 110%; }
+}
+
+@keyframes word-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.stage {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+}
+
+.stage-radar {
+  position: absolute;
+  width: min(150vw, 920px);
+  opacity: 0.95;
+}
+
+.stage-radar .lab-radar {
+  width: 100%;
+}
+
+.stage-copy {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 42rem);
+  padding-inline: 1.25rem;
+  text-align: center;
+}
+
+.stage-verb {
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 16vw, 8.5rem);
+  line-height: 0.86;
+  color: var(--color-signal);
+  text-shadow: 0 0 42px rgb(94 242 224 / 0.55);
+}
+
+.dial {
+  position: relative;
+  height: 280px;
+}
+
+.dial-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 10px;
+  width: 10px;
+  margin: -5px;
+  border-radius: 9999px;
+  background: rgb(94 242 224 / 0.35);
+}
+
+.dial-dot.on {
+  height: 16px;
+  width: 16px;
+  margin: -8px;
+  background: var(--color-signal);
+  box-shadow: 0 0 18px var(--color-signal);
+}
+
+.dial-label {
+  position: absolute;
+  inset: 70px 12px auto;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 1.05;
+  color: var(--color-bone);
+}
+
+.gauge {
+  width: min(70vw, 280px);
+  transform: rotate(-90deg);
+}
+
+.gauge-track {
+  fill: none;
+  stroke: rgb(94 242 224 / 0.18);
+  stroke-width: 8;
+}
+
+.gauge-value {
+  fill: none;
+  stroke: var(--color-signal);
+  stroke-width: 8;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgb(94 242 224 / 0.8));
+}
+
+.word-rise {
+  animation: word-rise 700ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+.verb-reel {
+  height: 0.92em;
+  overflow: hidden;
+  font-size: clamp(3.4rem, 16vw, 8.5rem);
+  line-height: 0.92;
+}
+
+.verb-reel .stage-verb {
+  height: 0.92em;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.verb-track {
+  animation: verb-cycle 8.4s steps(7, end) infinite;
+}
+
+@keyframes verb-cycle {
+  to { transform: translateY(calc(-7 * 0.92em)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-rise,
+  .lab-grid,
+  .lab-beam,
+  .lab-marquee {
+    animation: none;
+  }
+}
+
